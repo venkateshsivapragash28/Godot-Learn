@@ -2,6 +2,10 @@ extends State
 
 func enter():
 	player.velocity = Vector2.ZERO
+	# Hide attack effects when idle
+	var attack_fx = player.get_node_or_null("Sprite2D/AttackFX")
+	if attack_fx:
+		attack_fx.visible = false
 	# You'd call your animation logic here
 	var anim_player = player.get_node_or_null("AnimationPlayer")
 	if anim_player:

@@ -1,5 +1,11 @@
 extends State
 
+func enter():
+	# Hide attack effects when walking
+	var attack_fx = player.get_node_or_null("Sprite2D/AttackFX")
+	if attack_fx:
+		attack_fx.visible = false
+
 func update(_delta):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	
