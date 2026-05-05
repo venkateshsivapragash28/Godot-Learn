@@ -5,6 +5,8 @@ func update(_delta):
 	
 	if input_dir == Vector2.ZERO:
 		return "Idle"
+	if Input.is_action_just_pressed("attack"):
+		return "Attack"
 	
 	player.velocity = input_dir * player.move_speed
 	player.move_and_slide()

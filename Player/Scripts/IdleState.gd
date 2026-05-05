@@ -9,4 +9,6 @@ func update(_delta):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
 	if input_dir != Vector2.ZERO:
 		return "Walk" # Tells StateMachine to switch to the Walk node
+	if Input.is_action_just_pressed("attack"):
+		return "Attack"
 	return ""
