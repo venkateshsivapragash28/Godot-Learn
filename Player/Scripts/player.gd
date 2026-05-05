@@ -2,6 +2,7 @@ class_name Player extends CharacterBody2D
 
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D # Or whatever your sprite node is named
+@onready var state_machine = $StateMachine
 
 var move_speed : float = 200.0 # 500 is very fast for pixel art!
 	
@@ -25,8 +26,10 @@ func update_animation(dir):
 		else:
 			last_direction = "side"
 			anim_to_play = "walk_side"
-			sprite.flip_h = (dir.x < 0)
+			if sprite:
+				sprite.flip_h = (dir.x < 0)
 
 	# Only play if changed
-	if anim.current_animation != anim_to_play:
-		anim.play(anim_to_play)
+	var anim_player = get_node_or_null("AnimationPlayer")
+	if anim_player and anim_player.current_animation != anim_to_play:
+		anim_player.play(anim_to_play)

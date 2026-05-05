@@ -4,10 +4,9 @@ extends Node
 @onready var current_state : Node = get_node(initial_state)
 
 func _ready():
-	# Wait for owner (Player) to be ready
-	await owner.ready
+	# Give every state a reference to the Player
 	for child in get_children():
-		child.player = owner # Give every state a reference to the Player
+		child.player = owner
 	current_state.enter()
 
 func _physics_process(delta):
