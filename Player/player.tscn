@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cee2ltmkj8swx" path="res://Player/Sprites/PlayerSprite02.png" id="2_k53q1"]
 [ext_resource type="Script" uid="uid://dlr6ut7kqlbij" path="res://Player/Scripts/state_machine.gd" id="3_k53q1"]
 [ext_resource type="Texture2D" uid="uid://0ubew8h45od7" path="res://Player/Sprites/AttackSprite01.png" id="3_vtle1"]
+[ext_resource type="Texture2D" uid="uid://b8bduxd7punv5" path="res://Player/Sprites/Shadow.png" id="4_00tjw"]
 [ext_resource type="Script" uid="uid://cyvm7n7707a4a" path="res://Player/Scripts/IdleState.gd" id="4_fhl08"]
 [ext_resource type="Script" uid="uid://t0d4qthtqwul" path="res://Player/Scripts/WalkState.gd" id="5_vtle1"]
 [ext_resource type="Script" uid="uid://bqx68y3i2tnkf" path="res://Player/Scripts/AttackState.gd" id="6_attack"]
@@ -285,6 +286,12 @@ hframes = 12
 
 [node name="AttackAnimation" type="AnimationPlayer" parent="Sprite2D/AttackFX" unique_id=885879731]
 libraries/ = SubResource("AnimationLibrary_lfmf2")
+
+[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D" unique_id=596181302]
+modulate = Color(0.056291588, 0.056291603, 0.056291573, 0.7921569)
+show_behind_parent = true
+position = Vector2(0.4395604, 21.930069)
+texture = ExtResource("4_00tjw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864978822]
 root_node = NodePath("../Sprite2D")
