@@ -1,0 +1,91 @@
+# =========================
+
+# GODOT 4+ .gitignore
+
+# =========================
+
+# Godot import/cache folders
+
+.import/
+.godot/
+
+# Exported builds
+
+export/
+export_presets.cfg
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# Logs
+
+*.log
+
+# Mono / C# (if using Godot Mono)
+
+.mono/
+data_*/
+mono_crash.*
+
+# OS-generated files
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/editor files
+
+## VS Code
+
+.vscode/
+
+## JetBrains (IntelliJ, PyCharm, etc.)
+
+.idea/
+
+## Sublime
+
+*.sublime-project
+*.sublime-workspace
+
+# Backup files
+
+*~
+*.bak
+
+# Compiled / binaries
+
+*.exe
+*.apk
+*.aab
+*.ipa
+*.app
+*.x86
+*.x86_64
+
+# Archives
+
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Godot-specific (safe to ignore)
+
+*.translation
+
+# Optional: ignore large assets (uncomment if needed)
+
+# *.psd
+
+# *.blend
+
+# *.fbx
+
+# *.wav
+
+# Environment / secrets
+
+.env
