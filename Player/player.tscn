@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cyvm7n7707a4a" path="res://Player/Scripts/IdleState.gd" id="4_fhl08"]
 [ext_resource type="Script" uid="uid://t0d4qthtqwul" path="res://Player/Scripts/WalkState.gd" id="5_vtle1"]
 [ext_resource type="Script" uid="uid://bqx68y3i2tnkf" path="res://Player/Scripts/AttackState.gd" id="6_attack"]
+[ext_resource type="AudioStream" uid="uid://ch08vlqyq446d" path="res://Player/Audio/SwordSwoosh.wav" id="8_od3ui"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k53q1"]
 radius = 17.0
@@ -301,5 +302,12 @@ script = ExtResource("5_vtle1")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=1063521609]
 script = ExtResource("6_attack")
+attack_sound = ExtResource("8_od3ui")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=164801099]
+
+[node name="Audio" type="Node2D" parent="." unique_id=418057038]
+
+[node name="AttackAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=116132717]
+stream = ExtResource("8_od3ui")
+max_polyphony = 4

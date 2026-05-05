@@ -1,9 +1,14 @@
 extends State
 
+@export var attack_sound : AudioStream
+
 func enter():
 	# 1. Stop movement (if you want them to stay still)
 	if player:
 		player.velocity = Vector2.ZERO
+		var attack_audio = player.get_node_or_null("Audio/AttackAudio")
+		if attack_audio:
+			attack_audio.play()
 		
 		# 2. Show the attack effects based on attack direction
 		var attack_direction = player.last_direction
