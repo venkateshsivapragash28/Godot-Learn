@@ -3,13 +3,85 @@
 [ext_resource type="Script" uid="uid://ca4njjpf7kek5" path="res://Player/Scripts/player.gd" id="1_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cee2ltmkj8swx" path="res://Player/Sprites/PlayerSprite02.png" id="2_k53q1"]
 [ext_resource type="Script" uid="uid://dlr6ut7kqlbij" path="res://Player/Scripts/state_machine.gd" id="3_k53q1"]
+[ext_resource type="Texture2D" uid="uid://0ubew8h45od7" path="res://Player/Sprites/AttackSprite01.png" id="3_vtle1"]
 [ext_resource type="Script" uid="uid://cyvm7n7707a4a" path="res://Player/Scripts/IdleState.gd" id="4_fhl08"]
 [ext_resource type="Script" uid="uid://t0d4qthtqwul" path="res://Player/Scripts/WalkState.gd" id="5_vtle1"]
-[ext_resource type="Script" uid="uid://dw3vg7j5q8hkl" path="res://Player/Scripts/AttackState.gd" id="6_attack"]
+[ext_resource type="Script" uid="uid://bqx68y3i2tnkf" path="res://Player/Scripts/AttackState.gd" id="6_attack"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k53q1"]
 radius = 17.0
 height = 34.0
+
+[sub_resource type="Animation" id="Animation_5htga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p5o4e"]
+resource_name = "attackfx_down"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 3]
+}
+
+[sub_resource type="Animation" id="Animation_gu6f8"]
+resource_name = "attackfx_side"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [8, 11]
+}
+
+[sub_resource type="Animation" id="Animation_dkpta"]
+resource_name = "attackfx_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lfmf2"]
+_data = {
+&"RESET": SubResource("Animation_5htga"),
+&"attackfx_down": SubResource("Animation_p5o4e"),
+&"attackfx_side": SubResource("Animation_gu6f8"),
+&"attackfx_up": SubResource("Animation_dkpta")
+}
 
 [sub_resource type="Animation" id="Animation_4ntmi"]
 length = 0.001
@@ -205,6 +277,13 @@ scale = Vector2(2.275, 2.234375)
 texture = ExtResource("2_k53q1")
 hframes = 16
 vframes = 3
+
+[node name="AttackFX" type="Sprite2D" parent="Sprite2D" unique_id=923156358]
+texture = ExtResource("3_vtle1")
+hframes = 12
+
+[node name="AttackAnimation" type="AnimationPlayer" parent="Sprite2D/AttackFX" unique_id=885879731]
+libraries/ = SubResource("AnimationLibrary_lfmf2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864978822]
 root_node = NodePath("../Sprite2D")
