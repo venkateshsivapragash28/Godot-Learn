@@ -280,18 +280,21 @@ texture = ExtResource("2_k53q1")
 hframes = 16
 vframes = 3
 
-[node name="AttackFX" type="Sprite2D" parent="Sprite2D" unique_id=923156358]
-texture = ExtResource("3_vtle1")
-hframes = 12
-
-[node name="AttackAnimation" type="AnimationPlayer" parent="Sprite2D/AttackFX" unique_id=885879731]
-libraries/ = SubResource("AnimationLibrary_lfmf2")
-
 [node name="ShadowSprite" type="Sprite2D" parent="Sprite2D" unique_id=596181302]
 modulate = Color(0.056291588, 0.056291603, 0.056291573, 0.7921569)
 show_behind_parent = true
 position = Vector2(0.4395604, 21.930069)
 texture = ExtResource("4_00tjw")
+
+[node name="AttackSprite" type="Sprite2D" parent="Sprite2D" unique_id=1837620146]
+visible = false
+show_behind_parent = true
+position = Vector2(10, 0)
+texture = ExtResource("3_vtle1")
+hframes = 12
+
+[node name="AttackAnimation" type="AnimationPlayer" parent="Sprite2D/AttackSprite" unique_id=355337194]
+libraries/ = SubResource("AnimationLibrary_lfmf2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864978822]
 root_node = NodePath("../Sprite2D")
@@ -309,12 +312,10 @@ script = ExtResource("5_vtle1")
 
 [node name="Attack" type="Node" parent="StateMachine" unique_id=1063521609]
 script = ExtResource("6_attack")
-attack_sound = ExtResource("8_od3ui")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=164801099]
 
-[node name="Audio" type="Node2D" parent="." unique_id=418057038]
+[node name="Audio" type="Node" parent="." unique_id=995360543]
 
-[node name="AttackAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=116132717]
+[node name="SordWoosh" type="AudioStreamPlayer2D" parent="Audio" unique_id=1264320431]
 stream = ExtResource("8_od3ui")
-max_polyphony = 4
