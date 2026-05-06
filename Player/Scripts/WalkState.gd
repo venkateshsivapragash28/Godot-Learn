@@ -8,6 +8,8 @@ func enter():
 
 func update(_delta):
 	var input_dir = Input.get_vector("left", "right", "up", "down")
+	if input_dir.length() > 1.0:
+		input_dir = input_dir.normalized()
 	
 	if input_dir == Vector2.ZERO:
 		return "Idle"

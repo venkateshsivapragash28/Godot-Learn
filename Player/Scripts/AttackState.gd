@@ -30,6 +30,8 @@ func exit():
 func update(_delta):
 	if player:
 		var input_dir = Input.get_vector("left", "right", "up", "down")
+		if input_dir.length() > 1.0:
+			input_dir = input_dir.normalized()
 		if input_dir == Vector2.ZERO:
 			player.velocity = player.velocity.move_toward(Vector2.ZERO, attack_deceleration * _delta)
 		else:
