@@ -5,8 +5,17 @@ class_name Player extends CharacterBody2D
 @onready var state_machine = $PlayerFSM
 
 var move_speed : float = 200.0 # 500 is very fast for pixel art!
+@export var max_health: int = 10
 	
 var last_direction : String = "down"
+var current_health: int
+
+func _ready():
+	current_health = max_health
+
+func take_damage(amount: int):
+	current_health = max(current_health - amount, 0)
+	print("Player health: ", current_health)
 
 func update_animation(dir):
 	var anim_to_play = ""

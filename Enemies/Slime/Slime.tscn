@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://21t22vjvneei"]
 
 [ext_resource type="Texture2D" uid="uid://qwfnb1bkvnpa" path="res://Enemies/Slime/sprites/Slime.png" id="1_hsbk2"]
+[ext_resource type="Script" path="res://Enemies/Slime/slime.gd" id="2_slime"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsbk2"]
 radius = 31.06445
@@ -201,6 +202,7 @@ radius = 395.00125
 position = Vector2(1, -26)
 collision_layer = 256
 collision_mask = 16
+script = ExtResource("2_slime")
 
 [node name="SlimeSprite2D" type="Sprite2D" parent="." unique_id=1816161976]
 position = Vector2(0, -27)
