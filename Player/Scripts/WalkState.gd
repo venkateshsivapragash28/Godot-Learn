@@ -2,7 +2,7 @@ extends State
 
 func enter():
 	# Hide attack effects when walking
-	var attack_fx = player.get_node_or_null("Sprite2D/AttackFX")
+	var attack_fx = player.get_node_or_null("PlayerSprite2D/AttackSprite")
 	if attack_fx:
 		attack_fx.visible = false
 

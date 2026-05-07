@@ -12,7 +12,7 @@ func enter():
 		_play_attack_fx()
 
 		var anim_name = "attack_" + player.last_direction
-		var anim_player = player.get_node_or_null("AnimationPlayer")
+		var anim_player = player.get_node_or_null("PlayerAnimation")
 		if anim_player:
 			anim_player.play(anim_name)
 
@@ -21,7 +21,7 @@ func enter():
 
 func exit():
 	if player:
-		var anim_player = player.get_node_or_null("AnimationPlayer")
+		var anim_player = player.get_node_or_null("PlayerAnimation")
 		if anim_player:
 			if anim_player.animation_finished.is_connected(_on_animation_finished):
 				anim_player.animation_finished.disconnect(_on_animation_finished)
@@ -40,11 +40,7 @@ func update(_delta):
 	return ""
 
 func _play_attack_sound():
-	var sword_woosh = player.get_node_or_null("Audio/SordWoosh")
-	if sword_woosh == null:
-		sword_woosh = player.get_node_or_null("Audio/SwordWoosh")
-	if sword_woosh == null:
-		sword_woosh = player.get_node_or_null("Audio/AttackAudio")
+	var sword_woosh = player.get_node_or_null("PlayerAudio/SordWoosh")
 	if sword_woosh:
 		sword_woosh.play()
 
@@ -78,10 +74,7 @@ func _hide_attack_fx():
 		attack_fx.visible = false
 
 func _get_attack_fx():
-	var attack_fx = player.get_node_or_null("Sprite2D/AttackSprite")
-	if attack_fx == null:
-		attack_fx = player.get_node_or_null("Sprite2D/AttackFX")
-	return attack_fx
+	return player.get_node_or_null("PlayerSprite2D/AttackSprite")
 
 func _get_attack_fx_start_frame() -> int:
 	if player.last_direction == "up":

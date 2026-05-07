@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://21t22vjvneei"]
+
+[ext_resource type="Texture2D" uid="uid://qwfnb1bkvnpa" path="res://Enemies/Slime/sprites/Slime.png" id="1_hsbk2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsbk2"]
+radius = 31.06445
+
+[sub_resource type="Animation" id="Animation_0ae7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wyclx"]
+resource_name = "attack_down"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [18, 20]
+}
+
+[sub_resource type="Animation" id="Animation_suwpu"]
+resource_name = "attack_side"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [24, 26]
+}
+
+[sub_resource type="Animation" id="Animation_5fs0k"]
+resource_name = "attack_up"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [21, 23]
+}
+
+[sub_resource type="Animation" id="Animation_mjfjn"]
+resource_name = "idle_down"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_qsqqn"]
+resource_name = "idle_side"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6, 8]
+}
+
+[sub_resource type="Animation" id="Animation_2osmb"]
+resource_name = "idle_up"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3, 5]
+}
+
+[sub_resource type="Animation" id="Animation_puctb"]
+resource_name = "walk_down"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_dkpye"]
+resource_name = "walk_side"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [15, 17]
+}
+
+[sub_resource type="Animation" id="Animation_3of0s"]
+resource_name = "walk_up"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [12, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_suwpu"]
+_data = {
+&"RESET": SubResource("Animation_0ae7n"),
+&"attack_down": SubResource("Animation_wyclx"),
+&"attack_side": SubResource("Animation_suwpu"),
+&"attack_up": SubResource("Animation_5fs0k"),
+&"idle_down": SubResource("Animation_mjfjn"),
+&"idle_side": SubResource("Animation_qsqqn"),
+&"idle_up": SubResource("Animation_2osmb"),
+&"walk_down": SubResource("Animation_puctb"),
+&"walk_side": SubResource("Animation_dkpye"),
+&"walk_up": SubResource("Animation_3of0s")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ae7n"]
+radius = 31.400637
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hsbk2"]
+radius = 28.0
+height = 58.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mjfjn"]
+radius = 395.00125
+
+[node name="Slime" type="CharacterBody2D" unique_id=1758199648]
+position = Vector2(1, -26)
+collision_layer = 256
+collision_mask = 16
+
+[node name="SlimeSprite2D" type="Sprite2D" parent="." unique_id=1816161976]
+position = Vector2(0, -27)
+scale = Vector2(2.2745361, 2.1523438)
+texture = ExtResource("1_hsbk2")
+hframes = 16
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1988802919]
+visible = false
+shape = SubResource("CircleShape2D_hsbk2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1992239893]
+libraries/ = SubResource("AnimationLibrary_suwpu")
+autoplay = &"idle_down"
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1877751370]
+collision_layer = 512
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=27322573]
+visible = false
+shape = SubResource("CircleShape2D_0ae7n")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1292890543]
+collision_layer = 1024
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=2047940744]
+shape = SubResource("CapsuleShape2D_hsbk2")
+
+[node name="DirectionRange" type="Area2D" parent="." unique_id=1534121429]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DirectionRange" unique_id=1376606148]
+visible = false
+shape = SubResource("CircleShape2D_mjfjn")

@@ -264,58 +264,80 @@ _data = {
 &"walk_up": SubResource("Animation_od3ui")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_00tjw"]
+radius = 23.0
+height = 102.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1012026000]
+position = Vector2(0, -51)
 collision_mask = 16
 motion_mode = 1
 wall_min_slide_angle = 0.3700098
 script = ExtResource("1_4ntmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=407148186]
-position = Vector2(1, 35)
+visible = false
+position = Vector2(1, 33)
 shape = SubResource("CapsuleShape2D_k53q1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1813621994]
+[node name="PlayerSprite2D" type="Sprite2D" parent="." unique_id=1813621994]
 scale = Vector2(2.275, 2.234375)
 texture = ExtResource("2_k53q1")
 hframes = 16
 vframes = 3
 
-[node name="ShadowSprite" type="Sprite2D" parent="Sprite2D" unique_id=596181302]
+[node name="ShadowSprite" type="Sprite2D" parent="PlayerSprite2D" unique_id=596181302]
 modulate = Color(0.056291588, 0.056291603, 0.056291573, 0.7921569)
 show_behind_parent = true
 position = Vector2(0.4395604, 21.930069)
 texture = ExtResource("4_00tjw")
 
-[node name="AttackSprite" type="Sprite2D" parent="Sprite2D" unique_id=1837620146]
+[node name="AttackSprite" type="Sprite2D" parent="PlayerSprite2D" unique_id=1837620146]
 visible = false
 show_behind_parent = true
 position = Vector2(10, 0)
 texture = ExtResource("3_vtle1")
 hframes = 12
 
-[node name="AttackAnimation" type="AnimationPlayer" parent="Sprite2D/AttackSprite" unique_id=355337194]
+[node name="AttackAnimation" type="AnimationPlayer" parent="PlayerSprite2D/AttackSprite" unique_id=355337194]
 libraries/ = SubResource("AnimationLibrary_lfmf2")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=864978822]
-root_node = NodePath("../Sprite2D")
+[node name="PlayerAnimation" type="AnimationPlayer" parent="." unique_id=864978822]
+root_node = NodePath("../PlayerSprite2D")
 libraries/ = SubResource("AnimationLibrary_fhl08")
 
-[node name="StateMachine" type="Node" parent="." unique_id=324280901]
+[node name="PlayerFSM" type="Node" parent="." unique_id=324280901]
 script = ExtResource("3_k53q1")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=687553708]
+[node name="Idle" type="Node" parent="PlayerFSM" unique_id=687553708]
 script = ExtResource("4_fhl08")
 
-[node name="Walk" type="Node" parent="StateMachine" unique_id=885121278]
+[node name="Walk" type="Node" parent="PlayerFSM" unique_id=885121278]
 script = ExtResource("5_vtle1")
 
-[node name="Attack" type="Node" parent="StateMachine" unique_id=1063521609]
+[node name="Attack" type="Node" parent="PlayerFSM" unique_id=1063521609]
 script = ExtResource("6_attack")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=164801099]
+[node name="PlayerCamera2D" type="Camera2D" parent="." unique_id=164801099]
 
-[node name="Audio" type="Node" parent="." unique_id=995360543]
+[node name="PlayerAudio" type="Node" parent="." unique_id=995360543]
 
-[node name="SordWoosh" type="AudioStreamPlayer2D" parent="Audio" unique_id=1264320431]
+[node name="SordWoosh" type="AudioStreamPlayer2D" parent="PlayerAudio" unique_id=1264320431]
 stream = ExtResource("8_od3ui")
+
+[node name="PlayerHurtBox" type="Area2D" parent="." unique_id=1010431751]
+visible = false
+collision_layer = 2
+collision_mask = 1024
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox" unique_id=693618575]
+shape = SubResource("CapsuleShape2D_00tjw")
+
+[node name="PlayerHitBox" type="Area2D" parent="PlayerHurtBox" unique_id=913003957]
+collision_layer = 4
+collision_mask = 512
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtBox/PlayerHitBox" unique_id=1688829960]
